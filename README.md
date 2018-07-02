@@ -8,6 +8,6 @@
     - Given N people in a circle, start with one person and count to K.
     - Eliminate the Kth person and repeat with the person after the Kth person.
   - Learned how to delete gravity:
-    - '''
+    - ```
       import antigravity
-      '''
+      ```
