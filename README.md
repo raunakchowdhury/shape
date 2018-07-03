@@ -12,4 +12,4 @@
     - ```
       import antigravity
       ```
-- Day 6: Wrote TopologicalSort for directed acyclic graphs (DAGs). You can find information on DAGs [here](https://en.wikipedia.org/wiki/Directed_acyclic_graph) and on topological sort [here](https://en.wikipedia.org/wiki/Topological_sorting). Implemented Breadth First Search using a Queue. 
+- Day 6: Wrote TopologicalSort for directed acyclic graphs (DAGs). You can find information on DAGs [here](https://en.wikipedia.org/wiki/Directed_acyclic_graph) and on topological sort [here](https://en.wikipedia.org/wiki/Topological_sorting). Implemented Breadth First Search using a Queue. You can find information on Breadth First Search [here](https://en.wikipedia.org/wiki/Breadth-first_search). 
