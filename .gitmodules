@@ -1,0 +1,3 @@
+[submodule "shape-project"]
+	path = shape-project
+	url = git@github.com:raunakchowdhury/shape-project.git

@@ -1,5 +1,6 @@
 from queue import Queue
 
+# returns a dictionary containing the # of incoming edges for each node
 def incoming_edges(dictionary):
     indegree_count = {key: 0 for key in dictionary}
     for key in dictionary.keys():
@@ -34,5 +35,14 @@ if __name__ == '__main__':
         'C':['D','E'],
         'D':['E'],
         'E': []
+    }
+    print(topological_sort(directed_acyclic_graph))
+    #reversed graph
+    directed_acyclic_graph = {
+        'E':['C','D','B'],
+        'D':['B','C'],
+        'C':['A'],
+        'B':['A'],
+        'A':[]
     }
     print(topological_sort(directed_acyclic_graph))
