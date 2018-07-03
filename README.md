@@ -7,8 +7,9 @@
   - The Josephus Game:
     - Given N people in a circle, start with one person and count to K.
     - Eliminate the Kth person and repeat with the person after the Kth person.
+  - You can find more information on the Josephus Problem [here](https://en.wikipedia.org/wiki/Josephus_problem).
   - Learned how to delete gravity:
     - ```
       import antigravity
       ```
-- Day 6: Wrote TopologicalSort for directed acyclic graphs (DAGs). You can find information on [DAGs here](https://en.wikipedia.org/wiki/Directed_acyclic_graph) and on [topological sort here](https://en.wikipedia.org/wiki/Topological_sorting). 
+- Day 6: Wrote TopologicalSort for directed acyclic graphs (DAGs). You can find information on DAGs [here](https://en.wikipedia.org/wiki/Directed_acyclic_graph) and on topological sort [here](https://en.wikipedia.org/wiki/Topological_sorting).
