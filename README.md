@@ -11,3 +11,4 @@
     - ```
       import antigravity
       ```
+- Day 6: Wrote TopologicalSort for directed acyclic graphs (DAGs). You can find information on [DAGs here](https://en.wikipedia.org/wiki/Directed_acyclic_graph) and on [topological sort here](https://en.wikipedia.org/wiki/Topological_sorting). 
