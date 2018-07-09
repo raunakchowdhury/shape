@@ -323,6 +323,7 @@ def best_first(state, heuristic = misplaced_heuristic): #also greedy search
 
     return actions, states_expanded, max_frontier
 
+
 def astar(state, heuristic = misplaced_heuristic):
     """
     A-star search using the heuristic function passed as a parameter.
@@ -335,66 +336,58 @@ def astar(state, heuristic = misplaced_heuristic):
     from heapq import heappop
 
     costs = {}
-    costs[state] = 0
+    costs[state] = 0 #cost of path
 
     parents = {}
-    actions = []
 
     states_expanded = 0
     max_frontier = 0
 
     #YOUR CODE HERE
-    frontier = [('Start',state)]
+    frontier = [(heuristic(state),state,'Start')]
     seen = set()
-    seen.add(state)
+    explored = set()
+    seen.add((heuristic(state),state,'Start'))
+    popped_state = (heuristic(state),state,'Start')
 
-    popped_state = ('Start',state)
-    while not goal_test(popped_state[1]) and not len(frontier) == 0:
-        popped_state = frontier.pop(-1)
+    while len(frontier) != 0:
+        popped_state = heappop(frontier)
+        #print(goal_test(popped_state))
+        explored.add(popped_state[1])
         states_expanded += 1
-        child_states = get_successors(popped_state[1])
-        cost = costs[popped_state[1]]
 
-        # The following line computes the heuristic for a state
-        # by calling the heuristic function passed as a parameter.
-        # f = heuristic(state)
+        # if the popped state was the goal, generate actions and return
+        if goal_test(popped_state[1]):
+            #print('Done!')
+            break
 
-        #Sort according to the heuristic: create a dictionary with the heuristics, and then sort the child_states
-        children_heuristic = {}
-        for item in child_states:
-            possible_key = heuristic(item[1]) + cost + 1
-            costs[item[1]] = possible_key
-            if possible_key in children_heuristic.keys():
-                children_heuristic[possible_key].append(item)
-            else:
-                children_heuristic[possible_key] = [item]
+        child_states = get_successors(popped_state[1]) #returns a tuple of (direction,state)
+        cost = costs[popped_state[1]] + 1
 
-        child_states_heuristic = []
-        for heuristic_value in children_heuristic.keys():
-            heappush(child_states_heuristic,heuristic_value)
-
-        while len(child_states_heuristic) != 0:
-            heuristic_value = heappop(child_states_heuristic)
-            for child_state in children_heuristic[heuristic_value]:
-                if not child_state[1] in seen:
-                    seen.add(child_state[1])
-                    parents[child_state] = popped_state
-                    frontier.append(child_state)
+        for (direction, child_state) in child_states:
+            if not child_state in explored:
+                if not child_state in seen:
+                    new_child_state = (cost + heuristic(child_state), child_state, direction) #tuple of (actual_cost,state,direction)
+                    #print(new_child_state)
+                    heappush(frontier, new_child_state)
+                    parents[new_child_state[1:]] = popped_state[1:]
+                    costs[child_state] = cost
+                    seen.add(child_state)
 
         # track max size of the priority queue
         if len(frontier) > max_frontier:
             max_frontier = len(frontier)
+            #print(max_frontier)
 
-    #if no such solution exists
-    #print(popped_state)
-    if not goal_test(popped_state) and len(frontier) == 0:
-        return None, states_expanded, max_frontier # No solution found
-
-    current_node = popped_state
-    while current_node[0] != 'Start':
-        actions.append(current_node[0])
-        current_node = parents[current_node]
-    actions.reverse()
+    current_node = popped_state[1:]
+    actions = []
+    if len(frontier) != 0:
+        while current_node[1] != 'Start':
+            #print(current_node[2])
+            #break
+            actions.append(current_node[1])
+            current_node = parents[current_node]
+            actions.reverse()
 
     return actions, states_expanded, max_frontier
 
@@ -419,6 +412,7 @@ if __name__ == "__main__":
                   (3, 6, 7))
 
 
+    '''
     #More difficult test case
     test_state = ((7, 2, 4),
                   (5, 0, 6),
@@ -426,8 +420,8 @@ if __name__ == "__main__":
 
     print(state_to_string(test_state))
     print()
-
     '''
+
     print("====BFS====")
     solution, states_expanded, max_frontier = bfs(test_state) #
     print(type(bfs(test_state)))
@@ -438,7 +432,7 @@ if __name__ == "__main__":
         print(solution)
         print(solve_puzzle(test_state,solution))
     print("Total time: {0:.3f}s".format(end-start))
-
+    '''
     print()
     print("====DFS====")
     start = time.time()

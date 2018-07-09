@@ -14,3 +14,4 @@
 - Day 6: Wrote [TopologicalSort](https://en.wikipedia.org/wiki/Topological_sorting) for directed acyclic graphs ([DAGs](https://en.wikipedia.org/wiki/Directed_acyclic_graph)). Implemented [Breadth First Search](https://en.wikipedia.org/wiki/Breadth-first_search) using a Queue.
 - Day 7: Used an AI to solve the 8-square variant of a [sliding puzzle](https://en.wikipedia.org/wiki/Sliding_puzzle). More specifically, wrote Breadth-First Search and [Depth-First Search](https://en.wikipedia.org/wiki/Depth-first_search). Wrote a second version of Depth-First Search that searches heuristically (eg. consider the states that that have the least number of moves to solve first).
 - Day 8: Partially completed [A* search](https://en.wikipedia.org/wiki/A*_search_algorithm).
+- Day 9: Rewrote and refactored A* search. A* search now works!
