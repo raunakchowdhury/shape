@@ -15,3 +15,24 @@
 - Day 7: Used an AI to solve the 8-square variant of a [sliding puzzle](https://en.wikipedia.org/wiki/Sliding_puzzle). More specifically, wrote Breadth-First Search and [Depth-First Search](https://en.wikipedia.org/wiki/Depth-first_search). Wrote a second version of Depth-First Search that searches heuristically (eg. consider the states that that have the least number of moves to solve first).
 - Day 8: Partially completed [A* search](https://en.wikipedia.org/wiki/A*_search_algorithm).
 - Day 9: Rewrote and refactored A* search. A* search now works!
+- Day 10: Began implementing the [Minimax algorithm](https://en.wikipedia.org/wiki/Minimax), one technique used in game-playing.
+- Day 11: Finished implementing Minimax, completing the first MVP of the AI. Added some heuristics to make the AI more intelligent.
+- Day 12 and 13: Finished creating the AI, which can play [Othello](https://en.wikipedia.org/wiki/Computer_Othello) competitively! I have also saved copies of other AIs for black-box testing purposes; my AI is located in rc3246_ai.py.
+
+## Running Othello and the AI
+To run Othello from the directory, clone the repo first. From the root of the repo, run the following commands:
+```
+cd ai-project/othello/
+python othello_gui.py rc3246_ai.py
+```
+The AI will enter as the White player. To pit two AIs against each other, run:
+```
+cd ai-project/othello/
+python othello_gui.py ai_1.py ai_2.py
+```
+Where  ai_1 is the Black player and ai_2 is the White player.
+These are the AIs you can choose from:
+- rc3246_ai.py (My AI)
+- bcw2122.py
+- akm2220_ai.py
+- randy_ai.py
