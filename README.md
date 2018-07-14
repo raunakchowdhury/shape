@@ -37,5 +37,5 @@ These are the AIs you can choose from:
 - akm2220_ai.py
 - randy_ai.py
 
-##SHAPE '18:
+### SHAPE '18:
 ![SHAPE picture](/ai-project/shape2018.jpg)
